@@ -34,13 +34,15 @@ public class Pistola : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+
     void OnEnable()
-    {
+    {/*
         grab.hoverEntered.AddListener(OnHoverEntered); //Se suscribe al evento cuando una mano entra en hover (osea antes de agarrar)
         grab.selectEntered.AddListener(OnSelectEntered); //Se suscribe al evento cuando una mano agarra el arma
         grab.selectExited.AddListener(OnSelectExited); //Este es para cuando suelta el arma
+        */
         grab.activated.AddListener(OnActivated); //El evento de activación para disparar
-
+/*
         //Esta es una configuración estable de agarre:
         //No se usa attach dinámico porque quiero snap exacto a los puntos definidos
         grab.useDynamicAttach = false;
@@ -50,18 +52,18 @@ public class Pistola : MonoBehaviour
 
         //Aseguramos que el XRGrabInteractable apunte al attach FIJO del arma
         if (grab.attachTransform != attachPointWeapon && attachPointWeapon != null)
-            grab.attachTransform = attachPointWeapon;
+            grab.attachTransform = attachPointWeapon;*/
     }
 
     void OnDisable()
     {
         //Quitamos las suscripciones para evitar fugas o duplicados por si acaso
-        grab.hoverEntered.RemoveListener(OnHoverEntered);
-        grab.selectEntered.RemoveListener(OnSelectEntered);
-        grab.selectExited.RemoveListener(OnSelectExited);
+        //grab.hoverEntered.RemoveListener(OnHoverEntered);
+        //grab.selectEntered.RemoveListener(OnSelectEntered);
+        //grab.selectExited.RemoveListener(OnSelectExited);
         grab.activated.RemoveListener(OnActivated);
     }
-
+/**
     //Antes de agarrar, definimos qué pose/attach debe usar la MANO que está tocando
     private void OnHoverEntered(HoverEnterEventArgs args)
     {
@@ -134,7 +136,7 @@ public class Pistola : MonoBehaviour
             rb.MoveRotation(at.rotation);
         }
     }
-
+*/
     //Metodo que es el evento de activación, osea que inicie el disparo
     private void OnActivated(ActivateEventArgs _)
     {
