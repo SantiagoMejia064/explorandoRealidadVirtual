@@ -1,0 +1,18 @@
+
+using UnityEngine;
+using UnityEngine.XR.Content.Interaction;
+
+public class MoveCubito : MonoBehaviour
+{
+    public XRLever palanca;
+    public float upSpeed;
+
+    // Update is called once per frame
+    void Update()
+    {
+        float speedArriba = upSpeed * (palanca.value ? 1 : 0);
+
+        Vector3 velocity = new Vector3(0, speedArriba, 0);
+        transform.position += velocity * Time.deltaTime;
+    }
+}
