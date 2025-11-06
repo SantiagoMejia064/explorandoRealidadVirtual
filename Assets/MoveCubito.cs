@@ -1,4 +1,4 @@
-
+/*
 using UnityEngine;
 using UnityEngine.XR.Content.Interaction;
 
@@ -16,3 +16,4 @@ public class MoveCubito : MonoBehaviour
         transform.position += velocity * Time.deltaTime;
     }
 }
+*/
